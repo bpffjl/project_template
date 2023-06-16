@@ -67,16 +67,14 @@ dw_uid <- rstudioapi::showPrompt( #PW for connecting to the DW
   title = "What is your PW?",
   message = "What is your PW?",
   default = "")
-dw_pw <- rstudioapi::showPrompt( #password for connecting to the DW
-  title = "What is your Password",
-  message = "What is your Password",
-  default = "")
+
 con <- dbConnect(odbc::odbc(),
                  "Terapass",
                  timeout = Inf,
-                 UID = dw_uid,
-                 PWD = dw_pw,
+                 UID = keyring::key_list("data-warehouse")[1,2],
+                 PWD = keyring::key_get("data-warehouse", dw_uid),
                  big.int = "numeric")
+
 ```
 
 ### Load data
