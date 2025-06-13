@@ -1,0 +1,41 @@
+project:
+  type: default
+  output-dir: output/html
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    highlight-style: github
+    code-fold: true
+    code-tools: true
+    embed-resources: false
+    page-layout: full
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 250px
+    css: styles.css
+    include-in-header:
+      - text: |
+          <style>
+          .quarto-title-block .quarto-title-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          }
+          </style>
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  cache: true
+  freeze: auto
+
+bibliography: references.bib
+csl: apa.csl
+
+metadata-files:
+  - _metadata.yml
